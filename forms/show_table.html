@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Data Table</title>
+    <style>
+        /* Add your CSS styles for the table here */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Data Table</h1>
+    <button id="seeTableButton">See Table</button>
+    <table id="studentTable">
+        <tr>
+            <th>Name</th>
+            <th>Roll Number</th>
+            <th>Department</th>
+            <th>Semester</th>
+        </tr>
+    </table>
+    <script>
+        document.getElementById("seeTableButton").addEventListener("click", function () {
+            // Fetch data from retrieve_data.php
+            fetch("retrieve_data.php")
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length > 0) {
+                        // Populate the HTML table with data
+                        const table = document.getElementById("studentTable");
+                        table.innerHTML = "<tr><th>Name</th><th>Roll Number</th><th>Department</th><th>Semester</th></tr>";
+
+                        data.forEach(row => {
+                            table.innerHTML += `<tr><td>${row.name}</td><td>${row.roll}</td><td>${row.department}</td><td>${row.semester}</td></tr>`;
+                        });
+                    } else {
+                        // No data available
+                        alert("No data available.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching data: " + error);
+                });
+        });
+    </script>
+</body>
+</html>

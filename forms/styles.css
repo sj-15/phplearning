@@ -27,7 +27,7 @@ label {
 }
 
 input[type="text"] {
-    width: 100%;
+    width: 380px;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -40,4 +40,11 @@ input[type="submit"] {
     border: none;
     padding: 10px 20px;
     cursor: pointer;
+}
+
+a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
 }

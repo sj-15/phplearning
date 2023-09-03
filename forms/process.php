@@ -21,10 +21,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Insert data into the database
-    $sql = "INSERT INTO student_database (name, roll, department, semester) VALUES ('$name', '$roll', '$department', '$semester')";
+    $sql = "INSERT INTO students(name, roll, department, semester) VALUES ('$name', '$roll', '$department', '$semester')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Record added successfully";
+        header("Location: index.html");
+        exit;
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
