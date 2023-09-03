@@ -93,4 +93,13 @@ while ($i < 5) {
     $i++;
 }
 echo "</br>";
+
+// String
+$sen = "multiple arguments cannot be passed in print but echo can";
+echo strlen($sen); // Length of sen
+echo "</br>";
+echo str_word_count($sen); // number of words in a string
+echo "</br>";
+echo strrev($sen); // reverse a string
+echo "</br>";
 ?>
